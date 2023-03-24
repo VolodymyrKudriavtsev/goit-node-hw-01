@@ -1,17 +1,17 @@
 const contacts = require("./contacts");
-// const { Command } = require("commander");
+const { Command } = require("commander");
 
-// const program = new Command();
-// program
-//   .option("-a, --action <type>", "choose action")
-//   .option("-i, --id <type>", "user id")
-//   .option("-n, --name <type>", "user name")
-//   .option("-e, --email <type>", "user email")
-//   .option("-p, --phone <type>", "user phone");
+const program = new Command();
+program
+  .option("-a, --action <type>", "choose action")
+  .option("-i, --id <type>", "user id")
+  .option("-n, --name <type>", "user name")
+  .option("-e, --email <type>", "user email")
+  .option("-p, --phone <type>", "user phone");
 
-// program.parse(process.argv);
+program.parse();
 
-// const argv = program.opts();
+const options = program.opts();
 
 const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
@@ -42,15 +42,4 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
   }
 };
 
-// invokeAction(argv);
-
-// invokeAction({ action: "list" });
-// invokeAction({ action: "get", id: "AeHIrLTr6JkxGE6SN-0Rw" });
-// invokeAction({ action: "get", id: "AeHIrLTr6JkxGE6SN-0Rw" });
-// invokeAction({
-//   action: "add",
-//   name: "Markiz",
-//   email: "markiz@ukr.net",
-//   phone: "(063) 451-7038",
-// });
-invokeAction({ action: "remove", id: "aHfk3NqOPMdfCf-B-Htm1" });
+invokeAction(options);
